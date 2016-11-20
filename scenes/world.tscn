@@ -1,14 +1,13 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scripts/world.gd" type="Script" id=1]
 [ext_resource path="res://scripts/menu/menu.gd" type="Script" id=2]
 [ext_resource path="res://sprites/menu/menubackground.png" type="Texture" id=3]
 [ext_resource path="res://sprites/clouds_1.png" type="Texture" id=4]
-[ext_resource path="res://scripts/menu/main_menu.gd" type="Script" id=5]
-[ext_resource path="res://fonts/LobsterTwo-Regular.fnt" type="BitmapFont" id=6]
-[ext_resource path="res://scripts/menu/menu_option.gd" type="Script" id=7]
-[ext_resource path="res://scripts/menu/menu_levels.gd" type="Script" id=8]
-[ext_resource path="res://audio/menu/background.smp" type="Sample" id=9]
+[ext_resource path="res://scenes/main_menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/option_menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/levels_menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://audio/menu/background.smp" type="Sample" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -58,7 +57,7 @@ tracks/0/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 )
 
 [sub_resource type="SampleLibrary" id=5]
 
-samples/menu-music = { "db":0.0, "pitch":1.0, "sample":ExtResource( 9 ) }
+samples/menu-music = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
 
 [node name="world" type="Node2D"]
 
@@ -97,105 +96,11 @@ transform/pos = Vector2( 1264.72, 98.8843 )
 transform/scale = Vector2( 0.57442, 0.57442 )
 texture = ExtResource( 4 )
 
-[node name="main_menu" type="Node" parent="menu"]
+[node name="main_menu" parent="menu" instance=ExtResource( 5 )]
 
-editor/display_folded = true
-script/script = ExtResource( 5 )
+[node name="option_menu" parent="menu" instance=ExtResource( 6 )]
 
-[node name="main_menu_btn_start" type="Button" parent="menu/main_menu"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 902.0
-margin/top = 200.0
-margin/right = 1052.0
-margin/bottom = 249.0
-custom_fonts/font = ExtResource( 6 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Start"
-flat = false
-
-[node name="main_menu_btn_option" type="Button" parent="menu/main_menu"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 901.0
-margin/top = 299.0
-margin/right = 1050.0
-margin/bottom = 351.0
-custom_fonts/font = ExtResource( 6 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Option"
-flat = false
-
-[node name="main_menu_btn_quit" type="Button" parent="menu/main_menu"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 901.0
-margin/top = 401.0
-margin/right = 1050.0
-margin/bottom = 451.0
-custom_fonts/font = ExtResource( 6 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Quit"
-flat = false
-
-[node name="option_menu" type="Node" parent="menu"]
-
-script/script = ExtResource( 7 )
-
-[node name="option_menu_btn_back" type="Button" parent="menu/option_menu"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 1653.0
-margin/top = 103.0
-margin/right = 1801.0
-margin/bottom = 148.0
-custom_fonts/font = ExtResource( 6 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Back"
-flat = false
-
-[node name="levels_menu" type="Node" parent="menu"]
-
-editor/display_folded = true
-script/script = ExtResource( 8 )
-
-[node name="levels_menu_btn_back" type="Button" parent="menu/levels_menu"]
-
-hint/tooltip = "Go back to main menu\n"
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 600.0
-margin/top = 101.0
-margin/right = 748.0
-margin/bottom = 148.0
-custom_fonts/font = ExtResource( 6 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Back"
-flat = false
+[node name="levels_menu" parent="menu" instance=ExtResource( 7 )]
 
 [node name="view" type="Camera2D" parent="menu"]
 

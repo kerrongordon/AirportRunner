@@ -21,12 +21,14 @@ func _input(event):
 	if event.type == 2: return
 	#button to start the game	
 	if ( startGame.is_pressed() and not event.is_echo() ):
-		get_parent().get_node("view").get_node("menu_anim").play("menu-to-levels")
+		#get_parent().get_node("view").get_node("menu_anim").play("menu-to-levels")
+		get_node("/root/Global").setScene("res://scenes/menu_scenes/levels_menu.tscn")
 		print('start gamae')
 		
 	#buton to go to the option menu
 	if ( gameOption.is_pressed() and not event.is_echo() ):
-		get_parent().get_node("view").get_node("menu_anim").play("menu-to-option")
+		#get_parent().get_node("view").get_node("menu_anim").play("menu-to-option")
+		get_node("/root/Global").setScene("res://scenes/menu_scenes/option_menu.tscn")
 		print('option')
 		
 	#button to quit the game

@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scripts/menu/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://sprites/menu/menubackground.png" type="Texture" id=2]
+[ext_resource path="res://fonts/LobsterTwo-Regular.fnt" type="BitmapFont" id=3]
+
+[node name="main_menu" type="Node"]
+
+editor/display_folded = true
+script/script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+
+transform/pos = Vector2( 400, 300 )
+texture = ExtResource( 2 )
+
+[node name="main_menu_btn_start" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 100.0
+margin/top = 180.0
+margin/right = 250.0
+margin/bottom = 229.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Start"
+flat = false
+
+[node name="main_menu_btn_option" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 100.0
+margin/top = 300.0
+margin/right = 249.0
+margin/bottom = 352.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Option"
+flat = false
+
+[node name="main_menu_btn_quit" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 100.0
+margin/top = 420.0
+margin/right = 249.0
+margin/bottom = 470.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Quit"
+flat = false
+
+

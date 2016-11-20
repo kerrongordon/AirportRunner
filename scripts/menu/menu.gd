@@ -31,7 +31,7 @@ func menu_clouds(cloud, speed, delta):
 	var cur_pos = cloud.get_pos()
 	cur_pos.x += speed * delta
 	
-	if ( cur_pos.x > (cloud.get_viewport_rect().size.width * 3) + cloud.get_item_rect().size.width/2 ):
+	if ( cur_pos.x > cloud.get_viewport_rect().size.width + cloud.get_item_rect().size.width/2 ):
 		cur_pos.x = -cloud.get_item_rect().size.width/2
 	cloud.set_pos(cur_pos)
 	
