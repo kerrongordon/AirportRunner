@@ -15,8 +15,6 @@ func _ready():
 func _fixed_process(delta):
 	pass
 
-
-
 func _input(event):
 	if event.type == 2: return
 	#button to start the game	
