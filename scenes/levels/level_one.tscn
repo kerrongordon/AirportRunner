@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://sprites/character/head.png" type="Texture" id=1]
-[ext_resource path="res://scenes/ground.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sprites/clouds_1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/clouds_1.png" type="Texture" id=1]
+[ext_resource path="res://sprites/background.svg.png" type="Texture" id=2]
+[ext_resource path="res://sprites/character/head.png" type="Texture" id=3]
+[ext_resource path="res://scenes/ground.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -11,10 +12,29 @@ radius = 55.0
 
 [node name="level_one" type="Node2D" groups=[ "levels" ]]
 
+[node name="cloud1" type="KinematicBody2D" parent="."]
+
 editor/display_folded = true
+transform/pos = Vector2( 680.641, 178.529 )
+transform/scale = Vector2( 0.565636, 0.565636 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+__meta__ = { "_edit_group_":true }
+
+[node name="cloud" type="Sprite" parent="cloud1"]
+
+texture = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 500, 300 )
+texture = ExtResource( 2 )
 
 [node name="player" type="RigidBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 398.404, 301.242 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -41,7 +61,7 @@ __meta__ = { "_edit_group_":true }
 
 [node name="character" type="Sprite" parent="player"]
 
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 
@@ -69,25 +89,10 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="ground" parent="." instance=ExtResource( 2 )]
+[node name="ground" parent="." instance=ExtResource( 4 )]
 
-[node name="ground1" parent="." instance=ExtResource( 2 )]
+[node name="ground1" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1255, 540 )
-
-[node name="cloud1" type="KinematicBody2D" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 680.641, 178.529 )
-transform/scale = Vector2( 0.565636, 0.565636 )
-input/pickable = false
-collision/layers = 1
-collision/mask = 1
-collision/margin = 0.08
-__meta__ = { "_edit_group_":true }
-
-[node name="cloud" type="Sprite" parent="cloud1"]
-
-texture = ExtResource( 3 )
 
 
